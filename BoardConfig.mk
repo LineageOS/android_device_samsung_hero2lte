@@ -1,5 +1,5 @@
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x10008000 --ramdisk_offset 0x11000000 --tags_offset 0x10000100 --dt device/samsung/$(TARGET_DEVICE)/dt.img
-TARGET_KERNEL_SOURCE := kernel/samsung/exynos8890
+TARGET_KERNEL_SOURCE := kernel/samsung/universal8890
 TARGET_KERNEL_CONFIG := exynos8890-hero2lte_defconfig
 
 # Partitions

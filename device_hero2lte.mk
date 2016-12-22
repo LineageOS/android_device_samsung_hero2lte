@@ -1,4 +1,4 @@
-LOCAL_PATH := device/samsung/hero2ltexx
+LOCAL_PATH := device/samsung/hero2lte
 
 ###########################################################
 ### FLAT DEVICE TREE

@@ -1,5 +1,5 @@
 # Inherit device configuration
-$(call inherit-product, device/samsung/hero2ltexx/device_hero2lte.mk)
+$(call inherit-product, device/samsung/hero2lte/device_hero2lte.mk)
 $(call inherit-product, device/samsung/universal8890/device_universal8890.mk)
 
 # Inherit from the 64 bit configuration
