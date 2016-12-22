@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter hero2lte, hero2ltebmc, hero2lteskt, hero2ltektt, hero2ltelgt, hero2ltexx, $(TARGET_DEVICE)),)
+ifneq ($(filter hero2lte, $(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
