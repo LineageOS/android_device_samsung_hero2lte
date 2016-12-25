@@ -16,7 +16,7 @@ TARGET_RECOVERY_FSTAB := device/samsung/universal8890/ramdisk/fstab.samsungexyno
 BOARD_MODEM_TYPE := ss333
 
 # Recovery
-TARGET_OTA_ASSERT_DEVICE := hero2ltebmc,hero2lteskt,hero2ltektt,hero2ltelgt,hero2ltexx
+TARGET_OTA_ASSERT_DEVICE := hero2ltebmc,hero2lteskt,hero2ltektt,hero2ltelgt,hero2ltexx,hero2lte
 
 # Inherit common board flags
 include device/samsung/universal8890/BoardConfigCommon.mk
