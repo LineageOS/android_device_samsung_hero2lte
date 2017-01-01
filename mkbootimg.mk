@@ -14,26 +14,24 @@
 
 LOCAL_PATH := $(call my-dir)
 
-DTS_NAMES := exynos8890-hero2lte_eur_open
-
-DTS_FILES = $(wildcard $(TOP)/$(TARGET_KERNEL_SOURCE)/arch/arm64/boot/dts/$(DTS_NAMES)*.dts)
+DTS_FILES = $(wildcard $(TOP)/$(TARGET_KERNEL_SOURCE)/arch/$(TARGET_KERNEL_ARCH)/boot/dts/$(TARGET_DTS_NAMES)*.dts)
 DTS_FILE = $(lastword $(subst /, ,$(1)))
 
-PROCESSED_DTS_FILE = $(addprefix $(KERNEL_OUT)/arch/arm64/boot/dts_processed/,$(call DTS_FILE,$(1)))
+PROCESSED_DTS_FILE = $(addprefix $(KERNEL_OUT)/arch/$(TARGET_KERNEL_ARCH)/boot/dts_processed/,$(call DTS_FILE,$(1)))
 
-DTB_FILE = $(addprefix $(KERNEL_OUT)/arch/arm64/boot/,$(patsubst %.dts,%.dtb,$(call DTS_FILE,$(1))))
+DTB_FILE = $(addprefix $(KERNEL_OUT)/arch/$(TARGET_KERNEL_ARCH)/boot/,$(patsubst %.dts,%.dtb,$(call DTS_FILE,$(1))))
 DTC = $(KERNEL_OUT)/scripts/dtc/dtc
 
 define process-dts
-	rm -rf $(KERNEL_OUT)/arch/arm64/boot;\
-	mkdir -p $(KERNEL_OUT)/arch/arm64/boot/dts_processed;\
+	rm -rf $(KERNEL_OUT)/arch/$(TARGET_KERNEL_ARCH)/boot;\
+	mkdir -p $(KERNEL_OUT)/arch/$(TARGET_KERNEL_ARCH)/boot/dts_processed;\
 	$(foreach d, $(DTS_FILES), \
 		cpp -nostdinc -undef -x assembler-with-cpp -I $(TARGET_KERNEL_SOURCE)/include $(d) -o $(call PROCESSED_DTS_FILE,$(d));)
 endef
 
 define make-dtbs
 	$(foreach d, $(DTS_FILES), \
-		$(DTC) -p 0 -i $(TARGET_KERNEL_SOURCE)/arch/arm64/boot/dts -O dtb -o $(call DTB_FILE,$(d)) $(call PROCESSED_DTS_FILE,$(d));)
+		$(DTC) -p 0 -i $(TARGET_KERNEL_SOURCE)/arch/$(TARGET_KERNEL_ARCH)/boot/dts -O dtb -o $(call DTB_FILE,$(d)) $(call PROCESSED_DTS_FILE,$(d));)
 endef
 
 
@@ -46,7 +44,7 @@ $(INSTALLED_DTIMAGE_TARGET): $(DTBTOOL) $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/u
 	$(call process-dts)
 	$(call make-dtbs)
 	$(call pretty,"Target dt image: $(INSTALLED_DTIMAGE_TARGET)")
-	$(hide) $(DTBTOOL) -o $(INSTALLED_DTIMAGE_TARGET) -s $(BOARD_KERNEL_PAGESIZE) -d $(KERNEL_OUT)/arch/arm64/boot/
+	$(hide) $(DTBTOOL) -o $(INSTALLED_DTIMAGE_TARGET) -s $(BOARD_KERNEL_PAGESIZE) -d $(KERNEL_OUT)/arch/$(TARGET_KERNEL_ARCH)/boot/
 	@echo -e ${CL_CYN}"Made DT image: $@"${CL_RST}
 
 
