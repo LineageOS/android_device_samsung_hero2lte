@@ -93,6 +93,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.use_data_netmgrd=false \
     persist.data.netmgrd.qos.enable=false \
     ro.ril.hsxpa=1 \
-    ro.ril.gprsclass=10 \
-    ro.cbd.dt_revision=009 \
-    hw.revision=9
+    ro.ril.gprsclass=10
