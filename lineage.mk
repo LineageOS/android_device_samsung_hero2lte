@@ -29,6 +29,7 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := lineage_hero2lte
 PRODUCT_DEVICE := hero2lte
+PRODUCT_MODEL := SM-G935F
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
