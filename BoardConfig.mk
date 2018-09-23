@@ -18,8 +18,14 @@ include device/samsung/universal8890-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/samsung/hero2lte
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := hero2ltebmc,hero2lteskt,hero2ltektt,hero2ltelgt,hero2ltexx,hero2lte
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_hero2lte
 
 # Vendor security patch level
 VENDOR_SECURITY_PATCH := 2020-04-20
