@@ -27,6 +27,10 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_hero2lte
 
+# Kernel
+TARGET_KERNEL_SOURCE := kernel/samsung/universal8890
+TARGET_KERNEL_CONFIG := exynos8890-hero2lte_defconfig
+
 # Vendor security patch level
 VENDOR_SECURITY_PATCH := 2020-04-20
 
