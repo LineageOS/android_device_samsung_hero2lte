@@ -35,7 +35,7 @@ TARGET_KERNEL_CONFIG := exynos8890-hero2lte_defconfig
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Vendor security patch level
-VENDOR_SECURITY_PATCH := 2020-04-20
+VENDOR_SECURITY_PATCH := 2020-05-01
 
 # inherit from the proprietary version
 -include vendor/samsung/hero2lte/BoardConfigVendor.mk
