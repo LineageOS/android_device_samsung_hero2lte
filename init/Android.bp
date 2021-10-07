@@ -20,7 +20,7 @@ cc_library_static {
     srcs: ["init_hero2lte.cpp"],
     include_dirs: [
         "device/samsung/universal8890-common/init",
-        "system/core/base/include",
+        "system/libbase/include",
         "system/core/init",
     ],
     shared_libs: [
